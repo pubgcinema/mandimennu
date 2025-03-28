@@ -1,0 +1,184 @@
+/* General body styling with background image */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    /* Add background image */
+    background-image: url('../Images/karthi.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent for better contrast */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; /* Ensure navbar spans full width */
+    max-width: none; /* Remove max-width to span the entire page */
+    margin: 0; /* Remove centering margin */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.nav-link {
+    color: #2c3e50 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #e74c3c !important;
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #2c3e50;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #e74c3c;
+    color: #ffffff !important;
+}
+
+/* Centered wrapper for menu */
+.menu-wrapper {
+    display: flex;
+    justify-content: center; /* Center the menu horizontally */
+    width: 100%; /* Ensure the wrapper spans the full width */
+    flex-grow: 1; /* Allow the wrapper to grow and fill the remaining space */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Scrollspy container styling */
+.scrollspy-example {
+    width: 100%;
+    max-width: 450px; /* Narrower width to match the image */
+    height: calc(100vh - 80px); /* Full viewport height minus navbar height (approx 60px) and padding */
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for readability */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Menu item styling */
+.menu-item {
+    margin-bottom: 20px;
+}
+
+.menu-item h4 {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+/* Non-veg icon (orange triangle) */
+.non-veg-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #e67e22;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    margin-right: 8px;
+}
+
+/* Chef Special label */
+.chef-special {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-top: 5px;
+}
+
+/* Paragraph text */
+.menu-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+/* Portion options styling */
+.portion-options {
+    margin-top: 10px;
+}
+
+.portion-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.portion-item:last-child {
+    border-bottom: none;
+}
+
+.portion-item .price {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Active link highlighting for scrollspy */
+.nav-pills .nav-link.active {
+    background-color: #e74c3c !important;
+    color: #ffffff !important;
+}
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scrollspy-example {
+        height: calc(100vh - 60px); /* Adjust for smaller navbar height on mobile */
+        max-width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .menu-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .portion-item {
+        font-size: 0.85rem;
+    }
+}

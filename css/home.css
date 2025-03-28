@@ -1,0 +1,499 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Menu Title */
+.menu-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #444;
+}
+
+/* Image Container */
+.main-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.main-image-container img {
+    width: 90%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    .menu-title {
+        font-size: 24px;
+    }
+
+    .main-image-container {
+        max-width: 95%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.container .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    gap: 30px; /* Increase space between grid items */
+    padding: 20px; /* Add padding around the grid */
+    justify-items: center; /* Center-align items horizontally */
+    align-items: center; /* Center-align items vertically */
+}
+
+.container .row .col-lg-4 {
+    text-align: center; /* Center-align text below images */
+}
+
+.container .row .img-thumbnail {
+    width: 90%; /* Reduce image width slightly for better spacing */
+    height: auto;
+    object-fit: cover;
+    border: none;
+    padding: 10px; /* Add padding inside the image container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+    border-radius: 8px; /* Add rounded corners */
+}
+
+.container .row .img-thumbnail {
+    width: 90%; /* Reduce image width slightly for better spacing */
+    max-height: 250px; /* Set a maximum height for the images */
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border: none;
+    padding: 10px; /* Add padding inside the image container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+    border-radius: 8px; /* Add rounded corners */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Instagram Follow Button Banner */
+.instagram-follow-banner {
+    width: 100%;
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); /* Instagram gradient */
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-follow-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.instagram-follow-link:hover {
+    transform: translateY(-3px);
+    color: #f5f5f5;
+}
+
+.instagram-icon {
+    font-size: 2rem;
+    margin-right: 12px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.instagram-follow-link:hover .instagram-icon {
+    transform: scale(1.2);
+}
+
+.instagram-text {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .instagram-follow-banner {
+        padding: 10px 0;
+    }
+
+    .instagram-follow-link {
+        font-size: 1rem;
+    }
+
+    .instagram-icon {
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+}
+
+
+
+
+
+
+/* X Follow Button Banner */
+.x-follow-banner {
+    width: 100%;
+    background: linear-gradient(45deg, #1DA1F2, #14171A, #000000); /* X-inspired gradient (blue to dark gray to black) */
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.x-follow-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.x-follow-link:hover {
+    transform: translateY(-3px);
+    color: #f5f5f5;
+}
+
+.x-icon {
+    font-size: 2rem;
+    margin-right: 12px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.x-follow-link:hover .x-icon {
+    transform: scale(1.2);
+}
+
+.x-text {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .x-follow-banner {
+        padding: 10px 0;
+    }
+
+    .x-follow-link {
+        font-size: 1rem;
+    }
+
+    .x-icon {
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Full-Width Section Wrapper */
+.full-width-section {
+    width: 100%;
+    background: linear-gradient(45deg, rgba(26, 26, 26, 0.9), rgba(0, 0, 0, 0.9)); /* Dark gradient for cinematic feel */
+    padding: 30px 0;
+    border-top: 2px solid #ffd700; /* Gold border */
+    border-bottom: 2px solid #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); /* Subtle gold glow */
+}
+
+/* Location Section */
+.location-section {
+    width: 100%;
+    max-width: 900px; /* Slightly wider for better map visibility */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.location-section h4 {
+    font-size: 2rem;
+    color: #ffd700; /* Gold for cinematic feel */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.location-section p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px; /* Slightly taller map */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #ffd700; /* Gold border around map */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Photo Gallery Section */
+.gallery-section {
+    width: 100%;
+    max-width: 1400px; /* Wider for more images per row */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery-section h4 {
+    font-size: 2rem;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Larger images */
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Subtle scale on hover */
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px; /* Taller images for better visibility */
+    object-fit: cover;
+    display: block;
+    border: 2px solid #444; /* Dark border */
+    border-radius: 12px;
+    transition: filter 0.3s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    filter: brightness(70%); /* Darken image on hover */
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(231, 76, 60, 0.7), rgba(255, 215, 0, 0.7)); /* Red to gold gradient */
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    border: 3px solid #ffd700; /* Gold border */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffd700;
+    font-size: 2.5rem;
+    cursor: pointer;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .location-section, .gallery-section {
+        padding: 15px;
+    }
+
+    .location-section h4, .gallery-section h4 {
+        font-size: 1.5rem;
+    }
+
+    .location-section p {
+        font-size: 1rem;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-img {
+        height: 150px;
+    }
+
+    .gallery-overlay {
+        font-size: 1rem;
+    }
+
+    .close-lightbox {
+        font-size: 2rem;
+        top: 15px;
+        right: 20px;
+    }
+}
+
+
+
+
+
+
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-right: 15px;
+}
+
+.contact-item p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.contact-item a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #e74c3c;
+}
