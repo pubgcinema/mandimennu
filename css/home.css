@@ -497,3 +497,95 @@ body {
 .contact-item a:hover {
     color: #e74c3c;
 }
+
+
+
+
+
+
+
+
+
+/* Slideshow Container */
+.slideshow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+}
+
+/* Individual Slide */
+.slideshow img.slide {
+    width: 90%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade transition */
+}
+
+/* Show the first image initially */
+.slideshow img.slide:nth-child(1) {
+    opacity: 1;
+}
+
+/* Animation for slideshow */
+@keyframes slideshow {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    20% { opacity: 1; }
+    30% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Apply animation to each slide with a delay */
+.slideshow img.slide:nth-child(1) {
+    animation: slideshow 5s infinite; /* 5 seconds for 5 images (1 second each) */
+}
+.slideshow img.slide:nth-child(2) {
+    animation: slideshow 5s infinite 1s; /* Delay by 1 second */
+}
+.slideshow img.slide:nth-child(3) {
+    animation: slideshow 5s infinite 2s; /* Delay by 2 seconds */
+}
+.slideshow img.slide:nth-child(4) {
+    animation: slideshow 5s infinite 3s; /* Delay by 3 seconds */
+}
+.slideshow img.slide:nth-child(5) {
+    animation: slideshow 5s infinite 4s; /* Delay by 4 seconds */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .slideshow-container {
+        max-width: 95%;
+    }
+
+    .slideshow {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+
+    .slideshow img.slide {
+        max-height: 300px;
+    }
+}
