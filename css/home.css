@@ -200,7 +200,7 @@ body {
 
 
 
-/* X Follow Button Banner */
+/* Twitter Follow Button Banner */
 .x-follow-banner {
     width: 100%;
     background: linear-gradient(45deg, #1DA1F2, #14171A, #000000); /* X-inspired gradient (blue to dark gray to black) */
@@ -589,3 +589,5 @@ body {
         max-height: 300px;
     }
 }
+
+
