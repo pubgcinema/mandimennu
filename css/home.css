@@ -574,6 +574,12 @@ body {
 .slideshow img.slide:nth-child(5) {
     animation: slideshow 5s infinite 4s; /* Delay by 4 seconds */
 }
+.slideshow img.slide:nth-child(6) {
+    animation: slideshow 5s infinite 5s; /* Delay by 5 seconds */
+}
+.slideshow img.slide:nth-child(7) {
+    animation: slideshow 5s infinite 6s; /* Delay by 4 seconds */
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
