@@ -170,22 +170,27 @@ body::before {
     color: #e67e22;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
-.menu-subitem h5::before {
-    content: '▲';
-    color: #e67e22;
+.chicken-mandi-item h5::before {
+    content: '\f7f9 ▲'; /* Font Awesome 6 chicken icon + triangle */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #e74c3c;
     font-size: 1rem;
+    margin-right: 5px;
 }
 
-.menu-subitem .chef-special {
-    background: #2ecc71;
-    color: #fff;
-    font-size: 0.8rem;
-    padding: 3px 8px;
-    border-radius: 10px;
-    text-transform: uppercase;
+/* Fallback for chicken icon if Font Awesome fails */
+.chicken-mandi-item h5::before {
+    content: '🐔' ' ▲';
+    color: #e74c3c;
+    font-size: 1rem;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
 }
 
 .menu-subitem p {
@@ -210,19 +215,6 @@ body::before {
 .portion-item .price {
     font-weight: bold;
     color: #000;
-}
-
-/* Non-veg and veg icons */
-.non-veg-icon::before {
-    content: '●';
-    color: #e74c3c;
-    margin-right: 5px;
-}
-
-.veg-icon::before {
-    content: '●';
-    color: #2ecc71;
-    margin-right: 5px;
 }
 
 /* Responsive adjustments */

@@ -43,51 +43,19 @@ body {
 }
 
 .navbar-brand {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.nav-pills {
     display: flex;
     align-items: center;
-}
-
-.navbar-brand img {
-    height: 50px;
-    width: auto;
-}
-
-/* Hamburger menu styling */
-.hamburger-menu {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.bar {
-    width: 100%;
-    height: 3px;
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-}
-
-.hamburger-menu.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger-menu.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Navigation menu styling */
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    justify-content: center;
     flex: 1;
-    justify-content: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -144,16 +112,24 @@ body {
     box-sizing: border-box;
 }
 
-/* Menu item styling */
-.menu-item {
-    margin-bottom: 30px;
+/* Scrollspy container styling */
+.scrollspy-example {
     width: 100%;
     max-width: 450px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
+    margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Menu item styling */
+.menu-item {
+    margin-bottom: 30px;
 }
 
 .menu-item h4 {
@@ -178,6 +154,34 @@ body {
     margin-bottom: 5px;
 }
 
+/* Veg icon (green triangle for vegetarian items) */
+.veg-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #2ecc71; /* Green color for vegetarian */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
+    margin-right: 8px;
+}
+
+/* Non-veg icon (orange triangle) */
+.non-veg-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #e67e22;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    margin-right: 8px;
+}
+
+/* Egg icon (egg emoji for omlet items) */
+.egg-icon {
+    font-size: 24px;
+    line-height: 1;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
 /* Paragraph text */
 .menu-subitem p {
     font-size: 0.9rem;
@@ -193,7 +197,7 @@ body {
 
 .portion-item {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     font-size: 0.9rem;
     color: #666;
     padding: 5px 0;
@@ -216,7 +220,7 @@ html {
 
 /* Responsive adjustments */
 @media (max-width: 1000px) {
-    .nav-menu {
+    .nav-pills {
         gap: 15px;
     }
 
@@ -231,33 +235,17 @@ html {
 }
 
 @media (max-width: 768px) {
-    .hamburger-menu {
-        display: flex;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(90deg, #1a1a1a, #2e2e2e);
-        padding: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    }
-
-    .nav-menu.active {
-        display: flex;
+    .nav-pills {
+        gap: 10px;
     }
 
     .nav-link {
-        font-size: 1rem;
-        padding: 10px;
-        text-align: center;
+        font-size: 0.9rem;
+        padding: 6px 10px;
     }
 
-    .menu-item {
+    .scrollspy-example {
+        height: calc(100vh - 60px);
         max-width: 90%;
     }
 
@@ -271,5 +259,23 @@ html {
 
     .portion-item {
         font-size: 0.85rem;
+    }
+
+    .egg-icon {
+        font-size: 20px;
+    }
+}
+
+
+
+.navbar-brand img {
+    max-height: 50px; /* Adjust this value to your desired logo height */
+    width: auto; /* Maintains aspect ratio */
+    display: inline-block;
+    vertical-align: middle;
+}
+@media (max-width: 768px) {
+    .navbar-brand img {
+        max-height: 40px; /* Smaller logo for mobile */
     }
 }

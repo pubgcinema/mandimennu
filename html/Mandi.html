@@ -8,108 +8,115 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
-        <a class="navbar-brand" href="Home.html">Chicken Mandi Menu</a>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading1">Chicken Fry Mandi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#scrollspyHeading2">Chicken Kabsa Mandi</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Other Chicken Mandi</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#scrollspyHeading3">Chicken Faham Mandi</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading4">Chicken Juicy Mandi</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading5">Chicken Broasted Mandi</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading6">Chicken Ghee Roast Mandi</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading7">Chicken 65 Mandi</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
-        <div class="menu-item" id="scrollspyHeading1">
-            <h4><span class="non-veg-icon"></span> Chicken Fry Mandi</h4>
-            <p>Crispy fried chicken served with aromatic mandi rice.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Fry 1 Piece Mandi</span><span class="price">₹250</span></div>
-                <div class="portion-item"><span>Fry 2 Piece Mandi</span><span class="price">₹460</span></div>
-                <div class="portion-item"><span>Fry 3 Piece Mandi</span><span class="price">₹630</span></div>
-                <div class="portion-item"><span>Fry 4 Piece Mandi</span><span class="price">₹790</span></div>
-                <div class="portion-item"><span>Extra Chicken Fry</span><span class="price">₹150</span></div>
+    <header>
+        <div class="navbar" id="navbar-example2">
+            <a href="../index.html" class="navbar-brand">
+                <img src="../Images/cm logo.jpg" alt="Cinema Mandi Logo">
+            </a>
+            <nav class="nav-menu">
+                <a class="nav-link" href="#scrollspyHeading1">Chicken Fry Mandi</a>
+                <a class="nav-link" href="#scrollspyHeading2">Chicken Kabsa Mandi</a>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Other Chicken Mandi</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#scrollspyHeading3">Chicken Faham Mandi</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyHeading4">Chicken Juicy Mandi</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyHeading5">Chicken Broasted Mandi</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyHeading6">Chicken Ghee Roast Mandi</a></li>
+                        <li><a class="dropdown-item" href="#scrollspyHeading7">Chicken 65 Mandi</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="menu-wrapper">
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+            <div class="menu-item" id="scrollspyHeading1">
+                <h4><span class="non-veg-icon"></span><span class="chicken-icon">🐔</span> FALUKNAMA DAS CHICKEN FRY MANDI</h4>
+                <p>ROYAL FRIED CHICKEN MANDI WITH A MASSY ATTITUDE - A DISH FIT FOR NAWABS AND ROWDIES ALIKE.</p>
+                <div class="portion-options">
+                    <div class="portion-item"><span>FRY 1 PIECE</span><span class="price">₹250</span></div>
+                    <div class="portion-item"><span>FRY 2 PIECES</span><span class="price">₹460</span></div>
+                    <div class="portion-item"><span>FRY 3 PIECES</span><span class="price">₹630</span></div>
+                    <div class="portion-item"><span>FRY 4 PIECES</span><span class="price">₹790</span></div>
+                    <div class="portion-item"><span>EXTRA CHICKEN FRY</span><span class="price">₹150</span></div>
+                </div>
+            </div>
+            <div class="menu-item" id="scrollspyHeading2">
+                <h4><span class="non-veg-icon"></span><span class="chicken-icon">🐔</span> KABALI KABSA MANDI CHICKEN</h4>
+                <p>A BOLD BLEND OF ARABIAN KABSA SPICES AND SMOKY GRILLED CHICKEN - STYLE WITH SUBSTANCE, KABALI-STYLE.</p>
+                <div class="portion-options">
+                    <div class="portion-item"><span>KABSA 1 PIECE</span><span class="price">₹260</span></div>
+                    <div class="portion-item"><span>KABSA 2 PIECES</span><span class="price">₹480</span></div>
+                    <div class="portion-item"><span>KABSA 3 PIECES</span><span class="price">₹660</span></div>
+                    <div class="portion-item"><span>KABSA 4 PIECES</span><span class="price">₹820</span></div>
+                    <div class="portion-item"><span>EXTRA CHICKNE KABSA</span><span class="price">₹160</span></div>
+                </div>
+                <span class="chef-special">Chef Special</span>
+            </div>
+            <div class="menu-item" id="scrollspyHeading3">
+                <h4><span class="non-veg-icon"></span><span class="chicken-icon">🐔</span> F2 FAHAM MANDI CHICKEN</h4>
+                <p>PERFECTLY GRILLED FAHAM CHICKEN LAID OVER FRAGRANT MANDI RICE - FULL-ON FLAVOR, MINUS THE TENSION.</p>
+                <div class="portion-options">
+                    <div class="portion-item"><span>FAHAM 1 PIECE</span><span class="price">₹250</span></div>
+                    <div class="portion-item"><span>FAHAM 2 PIECES</span><span class="price">₹460</span></div>
+                    <div class="portion-item"><span>FAHAM 3 PIECES</span><span class="price">₹630</span></div>
+                    <div class="portion-item"><span>FAHAM 4 PIECES</span><span class="price">₹790</span></div>
+                    <div class="portion-item"><span>EXTRA CHICKEN FAHAM</span><span class="price">₹180</span></div>
+                </div>
+            </div>
+            <div class="menu-item" id="scrollspyHeading4">
+                <h4><span class="non-veg-icon"></span><span class="chicken-icon">🐔</span> JALSA JUICY MANDI CHICKEN</h4>
+                <p>TENDER, MARINATED CHICKEN WITH A JUICY FINISH EVERY BITE A CELEBRATION, JUST LIKE JALSA.</p>
+                <div class="portion-options">
+                    <div class="portion-item"><span>JUICY 1 PIECE</span><span class="price">₹270</span></div>
+                    <div class="portion-item"><span>JUICY 2 PIECES</span><span class="price">₹500</span></div>
+                    <div class="portion-item"><span>JUICY 3 PIECES</span><span class="price">₹690</span></div>
+                    <div class="portion-item"><span>JUICT 4 PIECES</span><span class="price">₹860</span></div>
+                    <div class="portion-item"><span>EXTRA CHICKEN JUICY</span><span class="price">₹170</span></div>
+                </div>
+            </div>
+            <div class="menu-item" id="scrollspyHeading5">
+                <h4><span class="non-veg-icon"></span><span class="chicken-icon">🐔</span> BAADSHAH BROASTED MANDI CHICKEN</h4>
+                <p>BROASTED TO A CRISP, SERVED WITH KING-SIZE MANDI RICE A CRUNCHY TWIST WORTHY OF A BAADSHAH.</p>
+                <div class="portion-options">
+                    <div class="portion-item"><span>BROASTED 1 PIECE </span><span class="price">₹290</span></div>
+                    <div class="portion-item"><span>BROASTED 2 PIECES</span><span class="price">₹540</span></div>
+                    <div class="portion-item"><span>BROASTED 3 PIECES</span><span class="price">₹750</span></div>
+                    <div class="portion-item"><span>BROASTED 4 PIECES</span><span class="price">₹940</span></div>
+                    <div class="portion-item"><span>EXTRA CHICKEN BROASTED</span><span class="price">₹190</span></div>
+                </div>
+            </div>
+            <div class="menu-item" id="scrollspyHeading6">
+                <h4><span class="non-veg-icon"></span><span class="chicken-icon">🐔</span> GODAVARI GHEE ROAST MANDI CHICKEN</h4>
+                <p>COASTAL RICHNESS MEETS NIZAM FLAIR AROMATIC GHEE ROAST ON SLOW-COOKED MANDI RICE.</p>
+                <div class="portion-options">
+                    <div class="portion-item"><span>GHEE ROAST 1 PIECE</span><span class="price">₹275</span></div>
+                    <div class="portion-item"><span>GHEE ROAST 2 PIECES</span><span class="price">₹510</span></div>
+                    <div class="portion-item"><span>GHEE ROAST 3 PIECES</span><span class="price">₹700</span></div>
+                    <div class="portion-item"><span>GHEE ROAST 4 PIECES</span><span class="price">₹880</span></div>
+                    <div class="portion-item"><span>EXTRA CHICKEN GHEE ROAST</span><span class="price">₹175</span></div>
+                </div>
+                <span class="chef-special">Chef Special</span>
             </div>
         </div>
-        <div class="menu-item" id="scrollspyHeading2">
-            <h4><span class="non-veg-icon"></span> Chicken Kabsa Mandi</h4>
-            <p>Roasted chicken with kabsa spices, paired with flavorful rice.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Kabsa 1 Piece Mandi</span><span class="price">₹260</span></div>
-                <div class="portion-item"><span>Kabsa 2 Piece Mandi</span><span class="price">₹480</span></div>
-                <div class="portion-item"><span>Kabsa 3 Piece Mandi</span><span class="price">₹660</span></div>
-                <div class="portion-item"><span>Kabsa 4 Piece Mandi</span><span class="price">₹820</span></div>
-                <div class="portion-item"><span>Extra Chicken Kabsa</span><span class="price">₹160</span></div>
-            </div>
-            <span class="chef-special">Chef Special</span>
-        </div>
-        <div class="menu-item" id="scrollspyHeading3">
-            <h4><span class="non-veg-icon"></span> Chicken Faham Mandi</h4>
-            <p>Smoky grilled chicken thighs with mandi rice.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Faham 1 Piece Mandi</span><span class="price">₹250</span></div>
-                <div class="portion-item"><span>Faham 2 Piece Mandi</span><span class="price">₹460</span></div>
-                <div class="portion-item"><span>Faham 3 Piece Mandi</span><span class="price">₹630</span></div>
-                <div class="portion-item"><span>Faham 4 Piece Mandi</span><span class="price">₹790</span></div>
-                <div class="portion-item"><span>Extra Chicken Faham</span><span class="price">₹180</span></div>
-            </div>
-        </div>
-        <div class="menu-item" id="scrollspyHeading4">
-            <h4><span class="non-veg-icon"></span> Chicken Juicy Mandi</h4>
-            <p>Slow-cooked, tender chicken with juicy flavors.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Juicy 1 Piece Mandi</span><span class="price">₹270</span></div>
-                <div class="portion-item"><span>Juicy 2 Piece Mandi</span><span class="price">₹500</span></div>
-                <div class="portion-item"><span>Juicy 3 Piece Mandi</span><span class="price">₹690</span></div>
-                <div class="portion-item"><span>Juicy 4 Piece Mandi</span><span class="price">₹860</span></div>
-                <div class="portion-item"><span>Extra Chicken Juicy</span><span class="price">₹170</span></div>
-            </div>
-        </div>
-        <div class="menu-item" id="scrollspyHeading5">
-            <h4><span class="non-veg-icon"></span> Chicken Broasted Mandi</h4>
-            <p>Broasted chicken (drumstick and thigh) with mandi rice.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Broasted 1 Piece Mandi</span><span class="price">₹290</span></div>
-                <div class="portion-item"><span>Broasted 2 Piece Mandi</span><span class="price">₹540</span></div>
-                <div class="portion-item"><span>Broasted 3 Piece Mandi</span><span class="price">₹750</span></div>
-                <div class="portion-item"><span>Broasted 4 Piece Mandi</span><span class="price">₹940</span></div>
-                <div class="portion-item"><span>Extra Chicken Broasted</span><span class="price">₹190</span></div>
-            </div>
-        </div>
-        <div class="menu-item" id="scrollspyHeading6">
-            <h4><span class="non-veg-icon"></span> Chicken Ghee Roast Mandi</h4>
-            <p>Ghee-roasted chicken with rich spices.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Ghee Roast 1 Piece Mandi</span><span class="price">₹275</span></div>
-                <div class="portion-item"><span>Ghee Roast 2 Piece Mandi</span><span class="price">₹510</span></div>
-                <div class="portion-item"><span>Ghee Roast 3 Piece Mandi</span><span class="price">₹700</span></div>
-                <div class="portion-item"><span>Ghee Roast 4 Piece Mandi</span><span class="price">₹880</span></div>
-                <div class="portion-item"><span>Extra Chicken Ghee Roast</span><span class="price">₹175</span></div>
-            </div>
-            <span class="chef-special">Chef Special</span>
-        </div>
-        <div class="menu-item" id="scrollspyHeading7">
-            <h4><span class="non-veg-icon"></span> Chicken 65 Mandi</h4>
-            <p>Spicy boneless Chicken 65 chunks with mandi rice.</p>
-            <div class="portion-options">
-                <div class="portion-item"><span>Chicken 65 1 Piece Mandi</span><span class="price">₹300</span></div>
-                <div class="portion-item"><span>Chicken 65 2 Piece Mandi</span><span class="price">₹560</span></div>
-                <div class="portion-item"><span>Chicken 65 3 Piece Mandi</span><span class="price">₹780</span></div>
-                <div class="portion-item"><span>Chicken 65 4 Piece Mandi</span><span class="price">₹980</span></div>
-                <div class="portion-item"><span>Extra Mandi Rice</span><span class="price">₹150</span></div>
-            </div>
-        </div>
-      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90, // Adjust for navbar height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
