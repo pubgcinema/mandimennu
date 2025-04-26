@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (username && phone.length === 10) {
             console.log('Redirecting to mandimennu/index.html...');
-            window.location.href = '../mandimennu/home.html'; // Adjusted path if index.html is in the root folder
+            window.location.href = '../mandimennu/html/home.html'; // Adjusted path if index.html is in the root folder
         } else {
             alert('Please enter a valid Name and 10-digit Phone Number.');
         }
