@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cinem Mandi</title>
+    <link rel="stylesheet" href="../mandimennu/css/login.css">
+</head>
+<body>
+    <img src="mandimennu/Images/cm logo.jpg" alt="Cinem Mandi Logo" class="logo">
+    <h1>Login to Cinem Mandi</h1>
+    <form action="/login" method="POST">
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="8686868454" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="optional for offers">
+
+        <input type="submit" value="Login">
+    </form>
+
+    <!-- Correct JS path -->
+    <script src="../mandimennu/JS/login.js"></script>
+</body>
+</html>

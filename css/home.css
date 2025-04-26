@@ -560,25 +560,25 @@ body {
 
 /* Apply animation to each slide with a delay */
 .slideshow img.slide:nth-child(1) {
-    animation: slideshow 5s infinite; /* 5 seconds for 5 images (1 second each) */
+    animation: slideshow 11s infinite; /* 5 seconds for 5 images (1 second each) */
 }
 .slideshow img.slide:nth-child(2) {
     animation: slideshow 5s infinite 1s; /* Delay by 1 second */
 }
 .slideshow img.slide:nth-child(3) {
-    animation: slideshow 5s infinite 2s; /* Delay by 2 seconds */
+    animation: slideshow 5s infinite 3s; /* Delay by 2 seconds */
 }
 .slideshow img.slide:nth-child(4) {
-    animation: slideshow 5s infinite 3s; /* Delay by 3 seconds */
+    animation: slideshow 5s infinite 5s; /* Delay by 3 seconds */
 }
 .slideshow img.slide:nth-child(5) {
-    animation: slideshow 5s infinite 4s; /* Delay by 4 seconds */
+    animation: slideshow 5s infinite 7s; /* Delay by 4 seconds */
 }
 .slideshow img.slide:nth-child(6) {
-    animation: slideshow 5s infinite 5s; /* Delay by 5 seconds */
+    animation: slideshow 5s infinite 9s; /* Delay by 5 seconds */
 }
 .slideshow img.slide:nth-child(7) {
-    animation: slideshow 5s infinite 6s; /* Delay by 4 seconds */
+    animation: slideshow 5s infinite 11s; /* Delay by 4 seconds */
 }
 
 /* Responsive Design */
