@@ -1,0 +1,39 @@
+
+                                    JS FOR LOGIN PAGE
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    console.log('Form:', form); // Debugging
+
+    if (!form) {
+        console.error('Form element not found in the DOM.');
+        return;
+    }
+
+    const usernameInput = document.getElementById('username');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+
+    console.log('Username Input:', usernameInput);
+    console.log('Phone Input:', phoneInput);
+    console.log('Email Input:', emailInput);
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = usernameInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const email = emailInput.value.trim();
+
+        if (username && phone.length === 10) {
+            console.log('Redirecting to mandimennu/index.html...');
+            window.location.href = '../mandimennu/html/home.html'; // Adjusted path if index.html is in the root folder
+        } else {
+            alert('Please enter a valid Name and 10-digit Phone Number.');
+        }
+    });
+});
+
+
+
+JS FOR LOGIN PAGE

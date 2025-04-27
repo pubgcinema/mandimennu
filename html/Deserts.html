@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desserts Menu - Cinema Mandi</title>
     <link rel="stylesheet" href="../css/deserts.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -38,91 +39,72 @@
 
             <!-- Dessert Items -->
             <div class="menu-subitem">
-                <h5>
-                    <span class="veg-icon"></span>
-                    JAMUN JANATHA GARAGE
-                </h5>
-                <p>SOFT, MELT-IN-THE-MOUTH MILK DUMPLINGS SOAKEDD IN ROSE-FLOAVORED SUGAR SYRUP.</p>
+                <h5><span class="veg-icon"></span> JAMUN JANATHA GARAGE</h5>
+                <p>Soft, melt-in-the-mouth milk dumplings soaked in rose-flavored sugar syrup.</p>
                 <div class="portion-options">
                     <div class="portion-item">
                         <span class="price">₹60</span>
+                        <button class="add-to-cart btn btn-primary btn-sm" data-name="JAMUN JANATHA GARAGE" data-price="60">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="menu-subitem">
-                <h5>
-                    <span class="veg-icon"></span>
-                    BADAM BAHUBALI FIRIN
-                </h5>
-                <P>RICH ALMOND-BASED DESERT WITH A CREAMY TEXTURE, INSPIRED BY BAHUBALI'S GRANDEUR.</P>
+                <h5><span class="veg-icon"></span> BADAM BAHUBALI FIRIN</h5>
+                <p>Rich almond-based dessert with a creamy texture, inspired by Bahubali's grandeur.</p>
                 <div class="portion-options">
                     <div class="portion-item">
                         <span class="price">₹60</span>
+                        <button class="add-to-cart btn btn-primary btn-sm" data-name="BADAM BAHUBALI FIRIN" data-price="60">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="menu-subitem">
-                <h5>
-                    <span class="veg-icon"></span>
-                    KANTRI KA KADU KHEER
-                </h5>
-                <P>TRADITIONAL PUMPKIN KHEER WITH A KANTRI TWIST, FLAVORED WITH CARDAMOM AND NUTS.</P>
+                <h5><span class="veg-icon"></span> KANTRI KA KADU KHEER</h5>
+                <p>Traditional pumpkin kheer with a Kantri twist, flavored with cardamom and nuts.</p>
                 <div class="portion-options">
                     <div class="portion-item">
                         <span class="price">₹60</span>
+                        <button class="add-to-cart btn btn-primary btn-sm" data-name="KANTRI KA KADU KHEER" data-price="60">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="menu-subitem">
-                <h5>
-                    <span class="veg-icon"></span>
-                    DOUBLE DHAMAKA KA MEETHA
-                </h5>
-                <P>A DOUBLE-LAYERED SWEET TREAT WITH A BURST OF FLAVORS, PERFECT FOR A DHAMAKA FINISH.</P>
+                <h5><span class="veg-icon"></span> DOUBLE DHAMAKA KA MEETHA</h5>
+                <p>A double-layered sweet treat with a burst of flavors, perfect for a dhamaka finish.</p>
                 <div class="portion-options">
                     <div class="portion-item">
                         <span class="price">₹60</span>
+                        <button class="add-to-cart btn btn-primary btn-sm" data-name="DOUBLE DHAMAKA KA MEETHA" data-price="60">Add to Cart</button>
                     </div>
                 </div>
             </div>
 
             <div class="menu-subitem">
-                <h5>
-                    <span class="veg-icon"></span>
-                    RRR APRICOT DELIGHT
-                </h5>
-                <p>A LUXURIOUS DESSERT WITH APRICOTS, CREAM, AND A HINT OF SAFFRON, RRR-STYLE.</p>
+                <h5><span class="veg-icon"></span> RRR APRICOT DELIGHT</h5>
+                <p>A luxurious dessert with apricots, cream, and a hint of saffron, RRR-style.</p>
                 <div class="portion-options">
                     <div class="portion-item">
                         <span class="price">₹110</span>
+                        <button class="add-to-cart btn btn-primary btn-sm" data-name="RRR APRICOT DELIGHT" data-price="110">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Cart Section -->
+    <div class="cart-wrapper container mt-5">
+        <h2>Cart</h2>
+        <ul id="cart-items" class="list-group mb-3"></ul>
+        <h4>Total: ₹<span id="cart-total">0</span></h4>
+        <a href="Checkout.html" class="btn btn-success mt-3">Proceed to Checkout</a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            console.log('Hamburger clicked'); // Debug log
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                console.log('Nav link clicked'); // Debug log
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="../JS/menu.js"></script> <!-- For hamburger menu -->
+    <script src="../JS/cart.js"></script> <!-- For cart functionality -->
 </body>
 </html>

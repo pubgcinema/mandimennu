@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="../mandimennu/css/index.css">
 </head>
 <body>
-    <img src="mandimennu/Images/cm logo.jpg" alt="Cinem Mandi Logo" class="logo">
+    <img src="../mandimennu/Images/cm logo.jpg" alt="Cinem Mandi Logo" class="logo">
     <h1>Login to Cinem Mandi</h1>
-    <form action="/login" method="POST">
+
+    <!-- Login Form -->
+    <form id="loginForm">
         <label for="username">Name:</label>
         <input type="text" id="username" name="username" required>
 
@@ -22,7 +24,13 @@
         <input type="submit" value="Login">
     </form>
 
-    <!-- Correct JS path -->
-    <script src="../mandimennu/JS/index.js"></script>
+    <!-- OTP Section (hidden at first) -->
+    <div id="otpSection" style="display:none;">
+        <p>An OTP has been sent to your phone. Please enter it below:</p>
+        <input type="text" id="otpInput" placeholder="Enter OTP" required>
+        <button id="verifyOtpBtn">Verify OTP</button>
+    </div>
+
+    <script src="../mandimennu/JS/index.js"></script> <!-- Correct path for JS -->
 </body>
 </html>
