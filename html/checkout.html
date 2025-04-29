@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Your styles -->
+    <title>Checkout - Cinema Mandi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
 
-    <div class="checkout-container">
-        <h2>Checkout</h2>
+<body>
+    <div class="container checkout-container mt-5">
+        <div class="logo-container text-center mb-4">
+            <img src="../Images/cm logo.jpg" alt="Cinema Mandi Logo" class="img-fluid" style="height: 100px;">
+        </div>
+
+        <h2 class="text-center mb-4">Place Your Order</h2>
 
         <form id="checkout-form">
-            <!-- User Info -->
-            <div class="form-group">
-                <label for="username">Full Name</label>
-                <input type="text" id="username" name="username" required>
+            <div class="formVigorous form-group mb-3">
+                <label for="table-name" class="form-label">Select Your Table</label>
+                <select id="table-name" name="table-name" class="form-select" required>
+                    <option value="">-- Choose a Table --</option>
+                    <option value="World of Khansar">World of Khansar</option>
+                    <option value="Brindavanam">Brindavanam</option>
+                    <option value="Ala Vaikunthapurramuloo">Ala Vaikunthapurramuloo</option>
+                    <option value="Rangasthalam">Rangasthalam</option>
+                    <option value="Sye">Sye</option>
+                    <option value="Baahubali">Baahubali</option>
+                </select>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-
-            <!-- Cart and Table Info -->
-            <div class="form-group">
-                <label for="table-number">Table Number</label>
-                <input type="text" id="table-number" name="table-number" required>
-            </div>
-
-            <div>
+            <div class="cart-summary mb-4">
                 <h3>Your Cart:</h3>
-                <ul id="cart-items">
-                    <!-- Cart items will be populated here -->
-                </ul>
-                <p><strong>Total Price: ₹<span id="total-price">0.00</span></strong></p>
+                <ul id="cart-items" class="list-group mb-3"></ul>
+                <p class="total-price"><strong>Total Price: ₹<span id="total-price">0.00</span></strong></p>
             </div>
 
-            <button type="submit" id="place-order-btn">Place Order</button>
+            <button type="submit" id="place-order-btn" class="btn btn-success w-100">Place Order</button>
         </form>
-    </div>
 
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cartItemsContainer = document.getElementById('cart-items');
             const totalPriceElement = document.getElementById('total-price');
             const placeOrderBtn = document.getElementById('place-order-btn');
+            const checkoutForm = document.getElementById('checkout-form');
 
             function loadCart() {
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cartItemsContainer.innerHTML = '';
                 let total = 0;
 
-                cart.forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = `${item.name} x ${item.quantity} - ₹${(item.price * item.quantity).toFixed(2)}`;
-                    cartItemsContainer.appendChild(li);
-                    total += item.price * item.quantity;
-                });
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<li class="list-group-item">Your cart is empty.</li>';
+                } else {
+                    cart.forEach(item => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item d-flex justify-content-between';
+                        li.innerHTML = `${item.name} x ${item.quantity} <span>₹${(item.price * item.quantity).toFixed(2)}</span>`;
+                        cartItemsContainer.appendChild(li);
+                        total += item.price * item.quantity;
+                    });
+                }
 
                 totalPriceElement.textContent = total.toFixed(2);
             }
@@ -71,69 +74,55 @@
                 localStorage.removeItem('cart');
             }
 
-            document.getElementById('checkout-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const tableNumber = document.getElementById('table-number').value.trim();
+            //  Helper function to properly encode the cart details
+            function encodeCartDetails(cart) {
+                return cart.map(item => `${item.name} x ${item.quantity}`).join('%0A'); //  Newline for each item
+            }
 
-                if (tableNumber === '') {
-                    alert('Please enter your table number.');
+            checkoutForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const tableName = document.getElementById('table-name').value.trim();
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                if (tableName === '') {
+                    alert('Please select your table.');
+                    return;
+                }
+                if (cart.length === 0) {
+                    alert('Your cart is empty.');
                     return;
                 }
 
-                // Collect cart details
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                let cartDetails = cart.map(item => `${item.name} x ${item.quantity}`).join(", ");
-                let totalPrice = totalPriceElement.textContent;
+                const cartDetails = encodeCartDetails(cart);
+                const totalPrice = totalPriceElement.textContent;
 
-                placeOrderBtn.innerHTML = 'Placing Order...'; // feedback to user
+                placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Placing Order...';
                 placeOrderBtn.disabled = true;
 
-                // Google Form submission URL and field IDs (replace with your own)
-                const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc-9tbIJ9VUDx8HFfLAOQI9m5buXjRSevQruJWloxizlW9wYg/viewform?usp=header'; // Replace with your form's action URL
-                const NAME_FIELD_ID = 'entry.1234567890'; // Replace with Name field ID
-                const EMAIL_FIELD_ID = 'entry.2345678901'; // Replace with Email field ID
-                const PHONE_FIELD_ID = 'entry.3456789012'; // Replace with Phone field ID
-                const TABLE_FIELD_ID = 'entry.4567890123'; // Replace with Table Number field ID
-                const CART_FIELD_ID = 'entry.5678901234'; // Replace with Cart Details field ID
-                const TOTAL_FIELD_ID = 'entry.6789012345'; // Replace with Total Price field ID
+                //  *IMPORTANT*:  Use the /formResponse URL, NOT the /viewform URL from the prefilled link!
+                const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd8I2e8PDH1-ADFWT5sseYevr08NWBdcjwzc_e4SLlQdyh_Ng/formResponse';
+                const TABLE_FIELD_ID = 'entry.1798445360';  //  *CONFIRMED FROM PREFILLED LINK*
+                const CART_FIELD_ID = 'entry.1384167702';   //  *CONFIRMED FROM PREFILLED LINK*
+                const TOTAL_FIELD_ID = 'entry.1053291576';   //  *CONFIRMED FROM PREFILLED LINK*
 
-                // Collect user info from the form
-                const username = document.getElementById('username').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const email = document.getElementById('email').value.trim();
-
-                if (!username || !email) {
-                    alert('Please fill out all required fields.');
-                    placeOrderBtn.innerHTML = 'Place Order';
-                    placeOrderBtn.disabled = false;
-                    return;
-                }
-
-                // Prepare form data for Google Form
                 const formData = new FormData();
-                formData.append(NAME_FIELD_ID, username);
-                formData.append(EMAIL_FIELD_ID, email);
-                formData.append(PHONE_FIELD_ID, phone);
-                formData.append(TABLE_FIELD_ID, tableNumber);
+                formData.append(TABLE_FIELD_ID, tableName);
                 formData.append(CART_FIELD_ID, cartDetails);
                 formData.append(TOTAL_FIELD_ID, totalPrice);
 
                 try {
-                    // Send POST request to Google Form
                     await fetch(GOOGLE_FORM_URL, {
                         method: 'POST',
                         body: formData,
-                        mode: 'no-cors' // Required for Google Forms
+                        mode: 'no-cors'
                     });
 
-                    setTimeout(() => {
-                        alert('Order placed successfully!');
-                        clearCart();
-                        window.location.href = '../index.html';
-                    }, 1000);
+                    alert('Order placed successfully!');
+                    clearCart();
+                    window.location.href = '../index.html';
                 } catch (error) {
                     console.error('Error submitting form:', error);
-                    alert('There was an error placing your order. Please try again.');
+                    alert('Failed to place order. Please try again later.');
                     placeOrderBtn.innerHTML = 'Place Order';
                     placeOrderBtn.disabled = false;
                 }
@@ -143,4 +132,5 @@
         });
     </script>
 </body>
+
 </html>

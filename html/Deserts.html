@@ -1,110 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desserts Menu - Cinema Mandi</title>
-    <link rel="stylesheet" href="../css/deserts.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desserts Menu - Cinema Mandi</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/deserts.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <header>
-        <div class="navbar">
-            <a href="../index.html" class="navbar-brand">
-                <img src="../Images/cm logo.jpg" alt="Cinema Mandi Logo">
-            </a>
-            <div class="hamburger-menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <nav class="nav-menu">
-                <a href="../index.html" class="nav-link">Home</a>
-                <a href="starters.html" class="nav-link">Starters</a>
-                <a href="Mandi.html" class="nav-link">Chicken Mandi</a>
-                <a href="m and f.html" class="nav-link">Mutton & Fish Mandi</a>
-                <a href="Veg Mandi.html" class="nav-link">Veg Mandi</a>
-                <a href="Deserts.html" class="nav-link active">Desserts</a>
-                <a href="Milkshakes.html" class="nav-link">Milkshakes</a>
-                <a href="Cooldrinks.html" class="nav-link">Cool Drinks</a>
-            </nav>
-        </div>
-    </header>
+  <header class="text-center my-3">
+    <a href="../index.html">
+      <img src="../Images/cm logo.jpg" alt="Cinema Mandi Logo" class="img-fluid" style="height: 100px;">
+    </a>
+  </header>
 
-    <div class="menu-wrapper">
-        <div class="menu-item">
-            <h4>DESSERTS</h4>
-
-            <!-- Dessert Items -->
-            <div class="menu-subitem">
-                <h5><span class="veg-icon"></span> JAMUN JANATHA GARAGE</h5>
-                <p>Soft, melt-in-the-mouth milk dumplings soaked in rose-flavored sugar syrup.</p>
-                <div class="portion-options">
-                    <div class="portion-item">
-                        <span class="price">₹60</span>
-                        <button class="add-to-cart btn btn-primary btn-sm" data-name="JAMUN JANATHA GARAGE" data-price="60">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-subitem">
-                <h5><span class="veg-icon"></span> BADAM BAHUBALI FIRIN</h5>
-                <p>Rich almond-based dessert with a creamy texture, inspired by Bahubali's grandeur.</p>
-                <div class="portion-options">
-                    <div class="portion-item">
-                        <span class="price">₹60</span>
-                        <button class="add-to-cart btn btn-primary btn-sm" data-name="BADAM BAHUBALI FIRIN" data-price="60">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-subitem">
-                <h5><span class="veg-icon"></span> KANTRI KA KADU KHEER</h5>
-                <p>Traditional pumpkin kheer with a Kantri twist, flavored with cardamom and nuts.</p>
-                <div class="portion-options">
-                    <div class="portion-item">
-                        <span class="price">₹60</span>
-                        <button class="add-to-cart btn btn-primary btn-sm" data-name="KANTRI KA KADU KHEER" data-price="60">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-subitem">
-                <h5><span class="veg-icon"></span> DOUBLE DHAMAKA KA MEETHA</h5>
-                <p>A double-layered sweet treat with a burst of flavors, perfect for a dhamaka finish.</p>
-                <div class="portion-options">
-                    <div class="portion-item">
-                        <span class="price">₹60</span>
-                        <button class="add-to-cart btn btn-primary btn-sm" data-name="DOUBLE DHAMAKA KA MEETHA" data-price="60">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-subitem">
-                <h5><span class="veg-icon"></span> RRR APRICOT DELIGHT</h5>
-                <p>A luxurious dessert with apricots, cream, and a hint of saffron, RRR-style.</p>
-                <div class="portion-options">
-                    <div class="portion-item">
-                        <span class="price">₹110</span>
-                        <button class="add-to-cart btn btn-primary btn-sm" data-name="RRR APRICOT DELIGHT" data-price="110">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Cinema Mandi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="starters.html">Starters</a></li>
+          <li class="nav-item"><a class="nav-link" href="Mandi.html">Chicken Mandi</a></li>
+          <li class="nav-item"><a class="nav-link" href="m and f.html">Mutton & Fish Mandi</a></li>
+          <li class="nav-item"><a class="nav-link" href="Veg Mandi.html">Veg Mandi</a></li>
+          <li class="nav-item"><a class="nav-link active" href="Deserts.html">Desserts</a></li>
+          <li class="nav-item"><a class="nav-link" href="Milkshakes.html">Milkshakes</a></li>
+          <li class="nav-item"><a class="nav-link" href="Cooldrinks.html">Cool Drinks</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Cart Section -->
-    <div class="cart-wrapper container mt-5">
-        <h2>Cart</h2>
-        <ul id="cart-items" class="list-group mb-3"></ul>
-        <h4>Total: ₹<span id="cart-total">0</span></h4>
-        <a href="Checkout.html" class="btn btn-success mt-3">Proceed to Checkout</a>
+  <div class="container mb-5">
+    <h1 class="text-center mb-4">Desserts</h1>
+    <div class="row">
+
+      <!-- Dessert Cards -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">JAMUN JANATHA GARAGE</h5>
+            <p class="card-text">Soft, melt-in-the-mouth milk dumplings soaked in rose-flavored sugar syrup.</p>
+            <h6 class="text-success">₹60</h6>
+            <button class="add-to-cart btn btn-primary" data-name="JAMUN JANATHA GARAGE" data-price="60">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">BADAM BAHUBALI FIRIN</h5>
+            <p class="card-text">Rich almond-based dessert with a creamy texture, inspired by Bahubali's grandeur.</p>
+            <h6 class="text-success">₹60</h6>
+            <button class="add-to-cart btn btn-primary" data-name="BADAM BAHUBALI FIRIN" data-price="60">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">KANTRI KA KADU KHEER</h5>
+            <p class="card-text">Traditional pumpkin kheer with a Kantri twist, flavored with cardamom and nuts.</p>
+            <h6 class="text-success">₹60</h6>
+            <button class="add-to-cart btn btn-primary" data-name="KANTRI KA KADU KHEER" data-price="60">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">DOUBLE DHAMAKA KA MEETHA</h5>
+            <p class="card-text">A double-layered sweet treat with a burst of flavors, perfect for a dhamaka finish.</p>
+            <h6 class="text-success">₹60</h6>
+            <button class="add-to-cart btn btn-primary" data-name="DOUBLE DHAMAKA KA MEETHA" data-price="60">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h5 class="card-title">RRR APRICOT DELIGHT</h5>
+            <p class="card-text">A luxurious dessert with apricots, cream, and a hint of saffron, RRR-style.</p>
+            <h6 class="text-success">₹110</h6>
+            <button class="add-to-cart btn btn-primary" data-name="RRR APRICOT DELIGHT" data-price="110">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JS/menu.js"></script> <!-- For hamburger menu -->
-    <script src="../JS/cart.js"></script> <!-- For cart functionality -->
+  <!-- Cart Section -->
+  <div class="cart-wrapper container mt-5">
+    <h2>Cart</h2>
+    <ul id="cart-items" class="list-group mb-3"></ul>
+    <h4>Total: ₹<span id="cart-total">0</span></h4>
+    <a href="Checkout.html" class="btn btn-success mt-3">Proceed to Checkout</a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../JS/menu.js"></script>
+  <script src="../JS/cart.js"></script>
+
 </body>
 </html>

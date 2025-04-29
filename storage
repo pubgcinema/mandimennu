@@ -44,3 +44,132 @@ JS FOR LOGIN PAGE
     <input type="text" id="otpInput" placeholder="Enter OTP" required>
     <button id="verifyOtpBtn">Verify OTP</button>
 </div>
+
+
+
+checkout:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <div class="checkout-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="../Images/cm logo.jpg" alt="Logo" class="logo"> <!-- Replace logo.png -->
+        </div>
+
+        <h2>Place Your Order</h2>
+
+        <form id="checkout-form">
+            <!-- Table Name Selection -->
+            <div class="form-group">
+                <label for="table-name">Select Your Table</label>
+                <select id="table-name" name="table-name" required>
+                    <option value="">-- Choose a Table --</option>
+                    <option value="World of Khansar">World of Khansar</option>
+                    <option value="Brindavanam">Brindavanam</option>
+                    <option value="Ala Vaikunthapurramuloo">Ala Vaikunthapurramuloo</option>
+                    <option value="Rangasthalam">Rangasthalam</option>
+                    <option value="Sye">Sye</option>
+                    <option value="Baahubali">Baahubali</option>
+                </select>
+            </div>
+
+            <!-- Cart Info -->
+            <div class="cart-summary">
+                <h3>Your Cart:</h3>
+                <ul id="cart-items">
+                    <!-- Cart items will be populated here -->
+                </ul>
+                <p class="total-price"><strong>Total Price: ₹<span id="total-price">0.00</span></strong></p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="place-order-btn">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            const placeOrderBtn = document.getElementById('place-order-btn');
+
+            function loadCart() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cartItemsContainer.innerHTML = '';
+                let total = 0;
+
+                cart.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.name} x ${item.quantity} - ₹${(item.price * item.quantity).toFixed(2)}`;
+                    cartItemsContainer.appendChild(li);
+                    total += item.price * item.quantity;
+                });
+
+                totalPriceElement.textContent = total.toFixed(2);
+            }
+
+            function clearCart() {
+                localStorage.removeItem('cart');
+            }
+
+            document.getElementById('checkout-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const tableName = document.getElementById('table-name').value.trim();
+
+                if (tableName === '') {
+                    alert('Please select your table.');
+                    return;
+                }
+
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let cartDetails = cart.map(item => `${item.name} x ${item.quantity}`).join(", ");
+                let totalPrice = totalPriceElement.textContent;
+
+                placeOrderBtn.innerHTML = 'Placing Order...';
+                placeOrderBtn.disabled = true;
+
+                // Replace with your real Google Form URL and field IDs
+                const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc-9tbIJ9VUDx8HFfLAOQI9m5buXjRSevQruJWloxizlW9wYg/formResponse';
+                const TABLE_FIELD_ID = 'entry.4567890123'; // Table Name Field ID
+                const CART_FIELD_ID = 'entry.5678901234'; // Cart Details Field ID
+                const TOTAL_FIELD_ID = 'entry.6789012345'; // Total Price Field ID
+
+                const formData = new FormData();
+                formData.append(TABLE_FIELD_ID, tableName);
+                formData.append(CART_FIELD_ID, cartDetails);
+                formData.append(TOTAL_FIELD_ID, totalPrice);
+
+                try {
+                    await fetch(GOOGLE_FORM_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'
+                    });
+
+                    setTimeout(() => {
+                        alert('Order placed successfully!');
+                        clearCart();
+                        window.location.href = '../index.html';
+                    }, 1000);
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    alert('There was an error placing your order. Please try again.');
+                    placeOrderBtn.innerHTML = 'Place Order';
+                    placeOrderBtn.disabled = false;
+                }
+            });
+
+            loadCart();
+        });
+    </script>
+
+</body>
+</html>
