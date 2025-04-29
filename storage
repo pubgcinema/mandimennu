@@ -37,3 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 JS FOR LOGIN PAGE
+
+<!-- OTP Section (hidden at first) -->
+<div id="otpSection" style="display:none;">
+    <p>An OTP has been sent to your phone. Please enter it below:</p>
+    <input type="text" id="otpInput" placeholder="Enter OTP" required>
+    <button id="verifyOtpBtn">Verify OTP</button>
+</div>

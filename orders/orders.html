@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .order-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>My Orders</h1>
+        <div id="orders-list"></div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="orderDetailsBody">
+                    <!-- Order details will be injected here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get placed orders from localStorage
+            const placedOrders = JSON.parse(localStorage.getItem('placedOrders')) || [];
+
+            // Check if there are no orders
+            if (placedOrders.length === 0) {
+                document.getElementById('orders-list').innerHTML = "<p>No orders placed yet.</p>";
+            } else {
+                // Build order list HTML
+                let ordersHtml = placedOrders.map((order, index) => {
+                    return `
+                        <div class="order-card card mb-3" onclick="viewOrderDetails(${index})">
+                            <div class="card-body">
+                                <h5 class="card-title">Order placed on: ${order.placedAt}</h5>
+                                <p><strong>Table Number:</strong> ${order.tableNumber}</p>
+                                <p><strong>Total Price:</strong> ₹${order.totalPrice}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                // Show the orders
+                document.getElementById('orders-list').innerHTML = ordersHtml;
+            }
+        });
+
+        function viewOrderDetails(orderIndex) {
+            // Get the order details
+            const placedOrders = JSON.parse(localStorage.getItem('placedOrders')) || [];
+            const order = placedOrders[orderIndex];
+
+            // Show details in a modal
+            const orderDetailsHtml = `
+                <h5>Table Number: ${order.tableNumber}</h5>
+                <p><strong>Order placed on:</strong> ${order.placedAt}</p>
+                <p><strong>Total Price:</strong> ₹${order.totalPrice}</p>
+                <p><strong>Items Ordered:</strong></p>
+                <ul>
+                    ${order.items.map(item => `<li>${item.name} - ₹${item.price}</li>`).join('')}
+                </ul>
+            `;
+            
+            // Insert order details in the modal
+            document.getElementById('orderDetailsBody').innerHTML = orderDetailsHtml;
+
+            // Show the modal
+            const myModal = new bootstrap.Modal(document.getElementById('orderDetailsModal'));
+            myModal.show();
+        }
+    </script>
+</body>
+
+</html>
