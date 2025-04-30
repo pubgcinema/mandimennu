@@ -10,6 +10,7 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+/* Overlay for background */
 body::before {
     content: '';
     position: fixed;
@@ -17,14 +18,14 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     z-index: -1;
 }
 
 /* Navbar styling */
 .navbar {
-    background: linear-gradient(90deg, #1a1a1a, #2e2e2e); /* Dark gray gradient */
+    background: linear-gradient(90deg, #1a1a1a, #2e2e2e);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -32,19 +33,14 @@ body::before {
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    border-bottom: 2px solid #e67e22; /* Orange border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #e67e22;
+    animation: slideDown 0.3s ease-in-out; /* Add slide down animation */
 }
 
-.navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(230, 126, 34, 0.1), transparent 70%);
-    z-index: -1;
+@keyframes slideDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
 }
 
 .navbar-brand img {
@@ -62,10 +58,10 @@ body::before {
 .nav-menu {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the links */
-    flex: 1; /* Take remaining space to center properly */
+    justify-content: center;
+    flex: 1;
     gap: 15px;
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -84,14 +80,14 @@ body::before {
 
 .nav-link:hover {
     color: #e67e22 !important;
-    background: rgba(230, 126, 34, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+    background: rgba(230, 126, 34, 0.25);
+    transform: translateY(-4px); /* Enhanced lift */
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
 }
 
 .nav-link.active {
     color: #e67e22 !important;
-    background: rgba(230, 126, 34, 0.25);
+    background: rgba(230, 126, 34, 0.40);
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
 }
@@ -116,11 +112,16 @@ body::before {
 .menu-wrapper {
     max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 25px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.menu-wrapper:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
 /* Tabs styling */
@@ -139,7 +140,7 @@ body::before {
 }
 
 .nav-tabs .nav-link:hover {
-    color: #e74c3c;
+    color: #e74c3c; /* Animated color change */
 }
 
 .nav-tabs .nav-link.active {
@@ -161,6 +162,11 @@ body::before {
     text-transform: uppercase;
     border-bottom: 2px solid #e67e22;
     padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover h4 {
+    color: #e67e22; /* Color change on hover */
 }
 
 .menu-subitem {
@@ -189,6 +195,11 @@ body::before {
     padding: 3px 8px;
     border-radius: 10px;
     text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.menu-subitem .chef-special:hover {
+    background: #27ae60; /* Darker green on hover */
 }
 
 .menu-subitem p {
@@ -197,6 +208,7 @@ body::before {
     margin: 5px 0 10px;
 }
 
+/* Portion options layout */
 .portion-options {
     display: flex;
     flex-direction: column;
@@ -208,97 +220,49 @@ body::before {
     justify-content: space-between;
     font-size: 1rem;
     color: #333;
+    transition: background 0.3s ease;
 }
 
-.portion-item .price {
-    font-weight: bold;
-    color: #000;
+.portion-item:hover {
+    background: rgba(230, 126, 34, 0.1);
 }
 
-/* Non-veg and veg icons */
+/* Icon styles */
+.non-veg-icon::before,
+.veg-icon::before {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
 .non-veg-icon::before {
     content: '●';
     color: #e74c3c;
-    margin-right: 5px;
 }
 
 .veg-icon::before {
     content: '●';
     color: #2ecc71;
-    margin-right: 5px;
 }
 
 /* Specific item icons */
 .chicken-icon::before {
     content: '🐔';
-    margin-right: 5px;
-    font-size: 1.2rem;
-    color: #e74c3c; /* Matches non-veg-icon color */
+    color: #e74c3c;
 }
 
 .prawn-icon::before {
     content: '🦐';
-    margin-right: 5px;
-    font-size: 1.2rem;
-    color: #e67e22; /* Matches menu-subitem h5 color */
+    color: #e67e22;
 }
 
 .egg-icon::before {
     content: '🥚';
-    margin-right: 5px;
-    font-size: 1.2rem;
     color: #f1c40f; /* Yellow for egg */
 }
 
 .fish-icon::before {
     content: '🐟';
-    margin-right: 5px;
-    font-size: 1.2rem;
     color: #3498db; /* Blue for fish */
-}
-
-.paneer-fry-icon::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://images.unsplash.com/photo-1596797038530-2c1076a76b32?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80');
-    background-size: cover;
-    background-position: center;
-    margin-right: 5px;
-}
-
-.paneer-tikka-icon::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://images.unsplash.com/photo-1599487489920-a5fc1e84e0ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80');
-    background-size: cover;
-    background-position: center;
-    margin-right: 5px;
-}
-
-.salted-fries-icon::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://images.unsplash.com/photo-1630439262790-7e3673d668d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80');
-    background-size: cover;
-    background-position: center;
-    margin-right: 5px;
-}
-
-.peri-peri-fries-icon::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://images.unsplash.com/photo-1579852223344-cbeb08b6f09b?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80');
-    background-size: cover;
-    background-position: center;
-    margin-right: 5px;
 }
 
 /* Responsive adjustments */
@@ -355,19 +319,111 @@ body::before {
     .portion-item {
         font-size: 0.9rem;
     }
+}
 
-    .chicken-icon::before,
-    .prawn-icon::before,
-    .egg-icon::before,
-    .fish-icon::before {
-        font-size: 1rem;
+
+
+/* Continued CSS based on your HTML structure and the initial CSS you've shared */
+
+.menu-subitem {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-left: 5px solid #e67e22;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.menu-subitem:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.menu-subitem h5 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2c3e50;
+    text-transform: uppercase;
+}
+
+.menu-subitem p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.portion-options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.portion-item {
+    display: flex;
+    justify-content: space-between;
+    min-width: 140px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    background: #f7f7f7;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.price {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+/* Icons */
+.non-veg-icon,
+.veg-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.chicken-icon,
+.prawn-icon,
+.fish-icon,
+.egg-icon {
+    background-color: #e74c3c;
+}
+
+.paneer-fry-icon,
+.paneer-tikka-icon,
+.salted-fries-icon,
+.peri-peri-fries-icon {
+    background-color: #27ae60;
+}
+
+/* Scrollspy section highlight - optional */
+.menu-item:target h4 {
+    color: #e67e22;
+    background-color: rgba(230, 126, 34, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
-
-    .paneer-fry-icon::before,
-    .paneer-tikka-icon::before,
-    .salted-fries-icon::before,
-    .peri-peri-fries-icon::before {
-        width: 16px;
-        height: 16px;
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .portion-options {
+        flex-direction: column;
     }
 }

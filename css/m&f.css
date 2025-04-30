@@ -1,298 +1,219 @@
-/* General body styling with background image */
+/* m&f.css */
+
+/* General body styles */
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-image: url('../Images/karthi.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #f9e6d9 0%, #f4d7c1 100%);
+    font-family: 'Playfair Display', serif;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 15px;
     min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-/* Navbar styling */
+/* Navbar styles */
 .navbar {
-    background: linear-gradient(90deg, #1a1a1a, #2e2e2e);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    border-bottom: 2px solid #e67e22;
+    padding: 10px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-.navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(230, 126, 34, 0.1), transparent 70%);
-    z-index: -1;
+.navbar:hover {
+    background: rgba(255, 255, 255, 1);
 }
 
-.navbar-brand img {
-    width: 150px; /* Reduced logo size */
-    height: auto;
+/* Logo Animation */
+.navbar img {
+    width: 90px; 
     transition: transform 0.3s ease;
+    animation: fadeInScale 1s ease-in-out forwards;
 }
 
-.navbar-brand img:hover {
-    transform: scale(1.05);
+@keyframes fadeInScale {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.nav-pills {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 0;
+.navbar img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Navbar items */
+.navbar-nav {
+    background: #3b1f1f;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 8px 15px;
 }
 
 .nav-link {
-    color: #ffffff !important;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
+    color: #f9e4b7 !important;
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin: 0 5px;
     position: relative;
-    padding: 8px 12px;
     border-radius: 5px;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    white-space: nowrap;
+    overflow: hidden;
 }
 
 .nav-link:hover {
-    color: #e74c3c !important;
-    background: rgba(231, 76, 60, 0.15);
+    color: #ffcc33 !important;
+    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
-}
-
-.nav-link.active {
-    color: #e74c3c !important;
-    background: rgba(231, 76, 60, 0.25);
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
-    background: #e74c3c;
-    bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #ffcc33;
+    transition: width 0.4s ease, left 0.4s ease;
 }
 
-.nav-link:hover::after, .nav-link.active::after {
-    width: 60%;
-}
-
-/* Centered wrapper for menu */
-.menu-wrapper {
-    display: flex;
-    justify-content: center;
+.nav-link:hover::after {
     width: 100%;
-    flex-grow: 1;
-    padding: 20px;
-    box-sizing: border-box;
+    left: 0;
 }
 
-/* Scrollspy container styling */
-.scrollspy-example {
-    width: 100%;
-    max-width: 450px;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-/* Menu item styling */
-.menu-item {
+/* Title styles */
+h1 {
+    color: #6b2d2d;
+    font-size: 2.5rem;
     margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1.5px;
 }
 
-.menu-item h4 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    border-bottom: 2px solid #e67e22;
-    padding-bottom: 5px;
+/* Card styles */
+.card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    min-height: 280px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    margin: 10px auto;
 }
 
-/* Menu subitem styling */
-.menu-subitem {
-    margin-bottom: 20px;
+.card.in-view {
+    animation: highlightCard 0.5s ease forwards;
 }
 
-.menu-subitem h5 {
+@keyframes highlightCard {
+    0% {
+        opacity: 0.7;
+        transform: translateY(20px) scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* Card body styles */
+.card-body {
+    padding: 15px;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    font-size: 1.25rem;
-    color: #2c3e50;
-    margin-bottom: 5px;
 }
 
-/* Non-veg icon (orange triangle) */
-.non-veg-icon {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: #e67e22;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    margin-right: 8px;
+/* Card Title Styles */
+.card-title {
+    font-size: 1.4rem;
+    color: #6b2d2d;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
-/* Mutton icon (sheep emoji) */
-.mutton-icon {
-    font-size: 24px;
-    line-height: 1;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-/* Prawn icon (shrimp emoji) */
-.prawn-icon {
-    font-size: 24px;
-    line-height: 1;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
-/* Fish icon (fish emoji) */
+/* Mutton, prawn, fish icons */
+.mutton-icon,
+.prawn-icon,
 .fish-icon {
     font-size: 24px;
-    line-height: 1;
     margin-right: 8px;
-    vertical-align: middle;
 }
 
-/* Chef Special label */
+/* Chef Special badge */
 .chef-special {
     display: inline-block;
     background-color: #2ecc71;
     color: #ffffff;
     font-size: 0.75rem;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 12px;
-    margin-top: 5px;
 }
 
-/* Paragraph text */
-.menu-subitem p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
+/* Price styles */
+.card-body div p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e91e63;
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin: 4px 0;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* Portion options styling */
-.portion-options {
-    margin-top: 10px;
-}
-
-.portion-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #666;
-    padding: 5px 0;
-    border-bottom: 1px dashed #ddd;
-}
-
-.portion-item:last-child {
-    border-bottom: none;
-}
-
-.portion-item .price {
-    font-weight: bold;
-    color: #e74c3c;
-}
-
-/* Smooth scrolling behavior */
-html {
-    scroll-behavior: smooth;
+.card-body div p:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 /* Responsive adjustments */
-@media (max-width: 1000px) {
-    .nav-pills {
-        gap: 15px;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
     }
-
-    .nav-link {
-        font-size: 1rem;
-        padding: 8px 12px;
-    }
-
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .navbar-brand img {
-        width: 120px; /* Smaller logo for medium screens */
+    .card {
+        max-width: 85%;
     }
 }
 
-@media (max-width: 768px) {
-    .nav-pills {
-        gap: 10px;
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
     }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .card {
+        max-width: 95%;
+    }
+}
 
-    .nav-link {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-    }
-
-    .scrollspy-example {
-        height: calc(100vh - 60px);
-        max-width: 90%;
-    }
-
-    .menu-item h4 {
-        font-size: 1.3rem;
-    }
-
-    .menu-subitem h5 {
-        font-size: 1.1rem;
-    }
-
-    .portion-item {
-        font-size: 0.85rem;
-    }
-
-    .mutton-icon,
-    .prawn-icon,
-    .fish-icon {
-        font-size: 20px;
-    }
-
-    .navbar-brand img {
-        width: 100px; /* Even smaller logo for small screens */
-    }
+/* Subtle background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/food.png');
+    opacity: 0.1;
+    z-index: -1;
 }
