@@ -74,10 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Automatic slideshow
-    let interval = setInterval(nextSlide, 3000); // Changed from 5000 to 3000
+    let interval = setInterval(nextSlide, 3000); // Changed to 3000
 
     // Add navigation buttons (if they are missing from your HTML, add them here or directly in HTML)
-    // You have this in your JS, so keeping it for completeness if not in HTML already
     const nextButton = document.createElement('button');
     nextButton.textContent = 'Next';
     nextButton.classList.add('slideshow-nav', 'next');
@@ -92,19 +91,20 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', () => {
         clearInterval(interval);
         nextSlide();
-        interval = setInterval(nextSlide, 3000); // Changed from 5000 to 3000
+        interval = setInterval(nextSlide, 3000); // Changed to 3000
     });
 
     prevButton.addEventListener('click', () => {
         clearInterval(interval);
         prevSlide();
-        interval = setInterval(prevSlide, 3000); // Changed from 5000 to 3000
+        interval = setInterval(nextSlide, 3000); // Changed to 3000 (NOTE: was nextSlide, should be prevSlide if you want it to restart with prev)
+                                                // Correction: This should still be nextSlide to continue auto-play
     });
 
     // Pause slideshow on hover
     slideshow.addEventListener('mouseenter', () => clearInterval(interval));
     slideshow.addEventListener('mouseleave', () => {
-        interval = setInterval(nextSlide, 3000); // Changed from 5000 to 3000
+        interval = setInterval(nextSlide, 3000); // Changed to 3000
     });
 
     // Clean up interval on slideshow removal
