@@ -1,35 +1,45 @@
-/* General body styling with background image */
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with cinematic background */
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    /* Add background image */
-    background-image: url('../Images/karthi.webp');
+    font-family: 'Raleway', 'Montserrat', 'Arial', sans-serif;
+    color: #fff;
+    background: url('../Images/karthi.webp'), linear-gradient(135deg, rgba(10, 10, 10, 0.85), rgba(20, 20, 20, 0.9));
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
+    align-items: center;
 }
 
-/* Navbar styling */
+/* Navbar styling with professional cinematic look */
 .navbar {
-    background: linear-gradient(90deg, #1a1a1a, #2e2e2e); /* Dark gray gradient for a sleek look */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%; /* Ensure navbar spans full width */
-    max-width: none; /* Remove max-width to span the entire page */
-    margin: 0; /* Remove centering margin */
+    width: 100%;
+    padding: 15px 40px;
+    border-bottom: 1px solid #d4af37; /* Soft gold border */
     display: flex;
     align-items: center;
-    padding: 15px 30px; /* Increased padding for a more spacious look */
-    border-bottom: 2px solid #e67e22; /* Orange border for consistency with other pages */
+    justify-content: space-between;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95); /* More opaque on scroll */
+    backdrop-filter: blur(12px);
 }
 
 .navbar::before {
@@ -39,62 +49,73 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(230, 126, 34, 0.1), transparent 70%);
-    z-index: -1; /* Subtle gradient overlay for visual interest */
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), transparent 50%, rgba(212, 175, 55, 0.1));
+    z-index: -1;
 }
 
 .navbar-brand {
-    font-weight: bold;
-    color: #ffffff; /* White for better contrast on dark background */
+    font-family: 'Cinzel', 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.03); /* Subtle scale instead of rotation */
 }
 
 .navbar-brand img {
-    height: 60px; /* Slightly larger logo for better visibility */
+    max-height: 55px;
     width: auto;
-    filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.5));
-    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5)); /* Soft gold glow */
+    transition: transform 0.3s ease;
 }
 
 .navbar-brand img:hover {
-    transform: scale(1.1) rotate(5deg);
-    filter: drop-shadow(0 0 12px rgba(230, 126, 34, 0.8));
+    transform: scale(1.1);
 }
 
-.nav-menu {
+.navbar-collapse {
+    flex-grow: 0; /* Prevent collapse from expanding too much */
+}
+
+.nav-pills {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the links */
-    flex: 1; /* Take remaining space to center properly */
-    gap: 20px; /* Increased gap for better spacing */
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    gap: 12px; /* Balanced spacing */
+    flex-wrap: nowrap; /* Force single line */
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    white-space: nowrap; /* Prevent text wrapping */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
+.nav-pills::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for cleaner look */
 }
 
 .nav-link {
-    color: #ffffff !important; /* White for better contrast on dark background */
-    font-size: 1.1rem; /* Slightly larger font for readability */
-    font-weight: 600;
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 500;
     text-transform: uppercase;
-    text-decoration: none;
-    position: relative;
-    padding: 10px 15px; /* Increased padding for better click area */
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 6px;
     transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    white-space: nowrap;
+    position: relative;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
-.nav-link:hover {
-    color: #e74c3c !important;
-    background: rgba(231, 76, 60, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
-}
-
-.nav-link.active {
-    color: #e74c3c !important;
-    background: rgba(231, 76, 60, 0.25);
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+.nav-link:hover, .nav-link.active {
+    color: #d4af37 !important; /* Soft gold for hover/active */
+    background: rgba(212, 175, 55, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
 }
 
 .nav-link::after {
@@ -102,7 +123,7 @@ body {
     position: absolute;
     width: 0;
     height: 2px;
-    background: #e74c3c;
+    background: #d4af37; /* Soft gold underline */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -110,152 +131,140 @@ body {
 }
 
 .nav-link:hover::after, .nav-link.active::after {
-    width: 60%;
-}
-
-.dropdown {
-    position: relative;
+    width: 80%;
 }
 
 .dropdown-toggle::after {
-    margin-left: 0.5em;
-    vertical-align: middle;
-    border-top-color: #ffffff; /* Match link color */
-    transition: border-top-color 0.3s ease;
-}
-
-.dropdown-toggle:hover::after {
-    border-top-color: #e74c3c; /* Match hover color */
+    border-top-color: #d4af37; /* Soft gold dropdown arrow */
 }
 
 .dropdown-menu {
-    background-color: #2e2e2e; /* Match navbar background */
-    border: none;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #d4af37;
+    border-radius: 6px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
+    backdrop-filter: blur(5px);
 }
 
 .dropdown-item {
-    color: #ffffff; /* White for contrast */
-    font-weight: 500;
-    padding: 8px 15px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    padding: 8px 20px;
     transition: all 0.3s ease;
 }
 
 .dropdown-item:hover {
-    background-color: #e74c3c;
-    color: #ffffff !important;
-    transform: translateX(5px); /* Subtle slide effect on hover */
+    background: rgba(212, 175, 55, 0.2);
+    color: #d4af37;
 }
 
-/* Centered wrapper for menu */
+/* Hamburger menu for mobile */
+.navbar-toggler {
+    border: none;
+    padding: 8px;
+    color: #d4af37;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    transform: scale(1.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(212, 175, 55, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Slide-in animation for mobile menu */
+.navbar-collapse {
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-collapse:not(.show) {
+    transform: translateX(100%);
+}
+
+.navbar-collapse.show {
+    transform: translateX(0);
+}
+
+/* Menu wrapper */
 .menu-wrapper {
-    display: flex;
-    justify-content: center; /* Center the menu horizontally */
-    width: 100%; /* Ensure the wrapper spans the full width */
-    flex-grow: 1; /* Allow the wrapper to grow and fill the remaining space */
+    width: 100%;
+    max-width: 1200px;
     padding: 20px;
-    box-sizing: border-box;
+    flex-grow: 1;
 }
 
-/* Scrollspy container styling */
+/* Scrollspy container */
 .scrollspy-example {
-    width: 100%;
-    max-width: 450px; /* Narrower width to match the image */
-    height: calc(100vh - 80px); /* Full viewport height minus navbar height (approx 60px) and padding */
+    max-width: 600px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for readability */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 0 auto; /* Center the container */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    max-height: calc(100vh - 100px);
+}
+
+/* Menu title */
+.menu-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* Menu item styling */
 .menu-item {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .menu-item h4 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d4af37; /* Soft gold border */
+    padding-bottom: 5px;
+}
+
+.menu-subitem h5 {
     display: flex;
     align-items: center;
     font-size: 1.25rem;
     color: #2c3e50;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
-/* Non-veg icon (orange triangle) */
 .non-veg-icon {
     display: inline-block;
     width: 12px;
     height: 12px;
-    background-color: #e67e22;
+    background-color: #d4af37; /* Soft gold for non-veg icon */
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     margin-right: 8px;
 }
 
-/* Chicken icon (emoji) */
-.chicken-icon {
-    font-size: 24px; /* Size for the chicken emoji */
-    line-height: 1; /* Prevent extra vertical space */
-    margin-right: 8px;
-    vertical-align: middle;
+.menu-subitem p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 0 10px;
+    line-height: 1.5;
 }
 
-.prawn-icon::before {
-    content: '🦐';
-    margin-right: 8px;
-    font-size: 1.2rem;
-    color: #e67e22; /* Orange for prawn */
-}
-
-.egg-icon::before {
-    content: '🥚';
-    margin-right: 8px;
-    font-size: 1.2rem;
-    color: #f1c40f; /* Yellow for egg */
-}
-
-.fish-icon::before {
-    content: '🐟';
-    margin-right: 8px;
-    font-size: 1.2rem;
-    color: #3498db; /* Blue for fish */
-}
-
-.mutton-icon::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-image: url('https://images.unsplash.com/photo-1625632062365-7b5b12e preliminary-meat-image.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80');
-    background-size: cover;
-    background-position: center;
-    margin-right: 8px;
-}
-
-/* Chef Special label */
-.chef-special {
-    display: inline-block;
-    background-color: #2ecc71;
-    color: #ffffff;
-    font-size: 0.75rem;
-    padding: 2px 8px;
-    border-radius: 12px;
-    margin-top: 5px;
-}
-
-/* Paragraph text */
-.menu-item p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-}
-
-/* Portion options styling */
 .portion-options {
     margin-top: 10px;
 }
@@ -265,8 +274,13 @@ body {
     justify-content: space-between;
     font-size: 0.9rem;
     color: #666;
-    padding: 5px 0;
+    padding: 8px 0;
     border-bottom: 1px dashed #ddd;
+    transition: background 0.2s ease;
+}
+
+.portion-item:hover {
+    background: rgba(212, 175, 55, 0.1); /* Soft gold hover effect */
 }
 
 .portion-item:last-child {
@@ -275,70 +289,94 @@ body {
 
 .portion-item .price {
     font-weight: bold;
-    color: #e74c3c;
+    color: #e74c3c; /* Retain red for prices */
 }
 
-/* Smooth scrolling behavior */
+.chef-special {
+    display: inline-block;
+    background: #d4af37; /* Soft gold badge */
+    color: #1a1a1a;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0a0a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1000px) {
-    .nav-menu {
-        gap: 15px; /* Slightly smaller gap for medium screens */
-    }
-
     .nav-link {
-        font-size: 1rem; /* Slightly smaller font size for medium screens */
+        font-size: 0.95rem;
         padding: 8px 12px;
     }
 
     .navbar {
-        padding: 10px 20px;
-    }
-
-    .navbar-brand img {
-        height: 50px; /* Adjusted logo size */
+        padding: 12px 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        gap: 10px; /* Further reduce gap for smaller screens */
+    .navbar {
+        padding: 10px 15px;
     }
 
-    .nav-link {
-        font-size: 0.9rem; /* Smaller font size for small screens */
-        padding: 6px 10px;
+    .navbar-brand {
+        font-size: 1.6rem;
     }
 
     .navbar-brand img {
-        height: 45px; /* Further adjusted logo size */
+        max-height: 45px;
+    }
+
+    .nav-pills {
+        flex-direction: column; /* Stack vertically in hamburger menu */
+        width: 100%;
+        gap: 5px;
+        background: rgba(20, 20, 20, 0.9);
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+        width: 100%;
+        text-align: center;
     }
 
     .scrollspy-example {
-        height: calc(100vh - 60px); /* Adjust for smaller navbar height on mobile */
-        max-width: 90%; /* Adjust width for smaller screens */
+        max-width: 90%;
+        max-height: calc(100vh - 120px);
+    }
+
+    .menu-title {
+        font-size: 1.8rem;
     }
 
     .menu-item h4 {
+        font-size: 1.3rem;
+    }
+
+    .menu-subitem h5 {
         font-size: 1.1rem;
     }
 
     .portion-item {
         font-size: 0.85rem;
-    }
-
-    .chicken-icon,
-    .prawn-icon::before,
-    .egg-icon::before,
-    .fish-icon::before {
-        font-size: 20px; /* Adjusted size for smaller screens */
-    }
-
-    .mutton-icon::before {
-        width: 16px;
-        height: 16px;
     }
 }

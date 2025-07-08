@@ -1,175 +1,200 @@
+<div id="home"></div>
 
-                                    JS FOR LOGIN PAGE
-
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    console.log('Form:', form); // Debugging
-
-    if (!form) {
-        console.error('Form element not found in the DOM.');
-        return;
-    }
-
-    const usernameInput = document.getElementById('username');
-    const phoneInput = document.getElementById('phone');
-    const emailInput = document.getElementById('email');
-
-    console.log('Username Input:', usernameInput);
-    console.log('Phone Input:', phoneInput);
-    console.log('Email Input:', emailInput);
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const username = usernameInput.value.trim();
-        const phone = phoneInput.value.trim();
-        const email = emailInput.value.trim();
-
-        if (username && phone.length === 10) {
-            console.log('Redirecting to mandimennu/index.html...');
-            window.location.href = '../mandimennu/html/home.html'; // Adjusted path if index.html is in the root folder
-        } else {
-            alert('Please enter a valid Name and 10-digit Phone Number.');
-        }
-    });
-});
-
-
-
-JS FOR LOGIN PAGE
-
-<!-- OTP Section (hidden at first) -->
-<div id="otpSection" style="display:none;">
-    <p>An OTP has been sent to your phone. Please enter it below:</p>
-    <input type="text" id="otpInput" placeholder="Enter OTP" required>
-    <button id="verifyOtpBtn">Verify OTP</button>
-</div>
-
-
-
-checkout:
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Cinema Mandi Menu</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add Font Awesome for icons (already included for Instagram/X banners) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-
-    <div class="checkout-container">
-        <!-- Logo -->
-        <div class="logo-container">
-            <img src="../Images/cm logo.jpg" alt="Logo" class="logo"> <!-- Replace logo.png -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="navbar-brand">
+                <img src="../Images/cm logo.jpg" alt="Logo">
+            </a>
+            <p> Where Food Meets Film In Every Frame</p>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
+    </header>
 
-        <h2>Place Your Order</h2>
+    <main>
+        <h2 class="menu-title">Cinema Mandi Frames & Flavors</h2>
+         <div class="slideshow">
+                <img src="../Images/Cooldrinks.jpg" alt="Image 1" class="slide">
+                <img src="../Images/Mandi 3 piece.jpg" alt="Image 2" class="slide">
+                <img src="../Images/cinema mandi image.jpg" alt="Image 3" class="slide">
+                <img src="../Images/5.jpg" alt="Image 4" class="slide">
+                <img src="../Images/Starter.jpg" alt="Image 5" class="slide">
+                <img src="../Images/ktr open.jpg" alt="Image 6" class="slide">
+                <img src="../Images/ktr openining.jpg" alt="Image 7" class="slide">
+                
+        </div>
+    
 
-        <form id="checkout-form">
-            <!-- Table Name Selection -->
-            <div class="form-group">
-                <label for="table-name">Select Your Table</label>
-                <select id="table-name" name="table-name" required>
-                    <option value="">-- Choose a Table --</option>
-                    <option value="World of Khansar">World of Khansar</option>
-                    <option value="Brindavanam">Brindavanam</option>
-                    <option value="Ala Vaikunthapurramuloo">Ala Vaikunthapurramuloo</option>
-                    <option value="Rangasthalam">Rangasthalam</option>
-                    <option value="Sye">Sye</option>
-                    <option value="Baahubali">Baahubali</option>
-                </select>
+    <div class="container">
+        <h2>Our Menu</h2>
+        <div class="row">
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/starters.html"><img class="img-thumbnail img-fluid" src="../Images/Starter.jpg" alt="starters">STARTERS</a>
             </div>
-
-            <!-- Cart Info -->
-            <div class="cart-summary">
-                <h3>Your Cart:</h3>
-                <ul id="cart-items">
-                    <!-- Cart items will be populated here -->
-                </ul>
-                <p class="total-price"><strong>Total Price: ₹<span id="total-price">0.00</span></strong></p>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/m and f.html"><img class="img-thumbnail img-fluid" src="../Images/prawns mandi.jpg" alt="Mutton and Fish  Mandi">MUTTON & FISH MANDI</a>
             </div>
-
-            <!-- Submit Button -->
-            <button type="submit" id="place-order-btn">Place Order</button>
-        </form>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/Mandi.html"><img class="img-thumbnail img-fluid" src="../Images/Mandi 3 piece.jpg" alt="Chicken  Mandi">CHICKEN MANDI</a>
+            </div>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/Veg Mandi.html"><img class="img-thumbnail img-fluid" src="../Images/Veg Mandi.jpg" alt="Veg Mandi">VEG MANDI</a>
+            </div>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/Deserts.html"><img class="img-thumbnail img-fluid" src="../Images/Deserts.jpg" alt="Deserts">DESERTS</a>
+            </div>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/Milkshakes.html"><img class="img-thumbnail img-fluid" src="../Images/milkshake.jpg" alt="Milkshakes">MILKSHAKES</a>
+            </div>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/mojito.html"><img class="img-thumbnail img-fluid" src="../Images/Mojitos.jpg" alt="Mojitos">MOJITOS</a>
+            </div>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/biryani.html"><img class="img-thumbnail img-fluid" src="../Images/chicken biryani.jpg" alt="Biryani">BIRYANI</a>
+            </div>
+            <div class="col-lg-4 col-6 px-0">
+                <a href="../html/specials.html"><img class="img-thumbnail img-fluid" src="../Images/specials.jpg" alt="Specials">CINEMA MANDI SPECIALS</a>
+            </div>
+        </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cartItemsContainer = document.getElementById('cart-items');
-            const totalPriceElement = document.getElementById('total-price');
-            const placeOrderBtn = document.getElementById('place-order-btn');
+    <h1>About US</h1>
+    <p>At Cinema Mandi Frames & Flavors, we bring you the perfect blend of blockbuster flavors and cinematic vibes. Inspired by the grandeur of the silver screen, we serve authentic, mouthwatering Mandi in an atmosphere that transports you straight into the world of movies. From iconic film posters to theater-style seating, every bite here is a reel-worthy experience!</p>
 
-            function loadCart() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cartItemsContainer.innerHTML = '';
-                let total = 0;
+    
+    <!-- Add Font Awesome for Instagram icon (include this in the <head> of your page) -->
 
-                cart.forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = `${item.name} x ${item.quantity} - ₹${(item.price * item.quantity).toFixed(2)}`;
-                    cartItemsContainer.appendChild(li);
-                    total += item.price * item.quantity;
-                });
 
-                totalPriceElement.textContent = total.toFixed(2);
-            }
+<!-- Instagram Follow Button Banner -->
+<div class="instagram-follow-banner">
+    <a href="https://www.instagram.com/cinema_mandii?igsh=eHVyY2htdDl0NzQ=" target="_blank" class="instagram-follow-link">
+        <i class="fab fa-instagram instagram-icon"></i>
+        <span class="instagram-text">Follow Us on Instagram</span>
+    </a>
+</div>
 
-            function clearCart() {
-                localStorage.removeItem('cart');
-            }
+<!-- X Follow Button Banner -->
+<div class="x-follow-banner">
+    <a href="https://www.threads.net/@cinema_mandii?xmt=AQGz5j16dCALQSmlDl7iyD-8JIR2BsMuK4QVbPrekjPow5Y" target="_blank" class="x-follow-link">
+        <i class="fab fa-twitter x-icon"></i>
+        <span class="x-text">Follow Us on X</span>
+    </a>
+</div>
 
-            document.getElementById('checkout-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const tableName = document.getElementById('table-name').value.trim();
 
-                if (tableName === '') {
-                    alert('Please select your table.');
-                    return;
-                }
+<!-- Menu content (already in your page) -->
+<div class="menu-wrapper">
+    <div data-bs-spy="scroll" ...>
+        <!-- Your existing menu content -->
+    </div>
+</div>
 
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                let cartDetails = cart.map(item => `${item.name} x ${item.quantity}`).join(", ");
-                let totalPrice = totalPriceElement.textContent;
+<!-- Full-Width Location Section -->
+<div class="full-width-section">
+    <div class="location-section">
+        <h4>Our Location</h4>
+        <p> Shop number 4, Railway Employees Colony,, Kompally, Hyderabad, India</p>
+        <div class="map-container">
+            <iframe src="https://maps.app.goo.gl/h32dyG4tzjsVRL7A6" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
 
-                placeOrderBtn.innerHTML = 'Placing Order...';
-                placeOrderBtn.disabled = true;
+<!-- Full-Width Photo Gallery Section -->
+<div class="full-width-section">
+    <div class="gallery-section">
+        <h4>Our Ambience, Food, Milkshakes & Theme</h4>
+        <div class="gallery-grid">
+            <!-- Ambience -->
+            <div class="gallery-item">
+                <img src="../Images/6.jpg" alt="Ambience 1" class="gallery-img">
+                <div class="gallery-overlay">Ambience</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../Images/5.jpg" alt="Ambience 2" class="gallery-img">
+                <div class="gallery-overlay">Ambience</div>
+            </div>
+            <!-- Food -->
+            <div class="gallery-item">
+                <img src="../Images/2 (1).jpg" alt="Food 1" class="gallery-img">
+                <div class="gallery-overlay">Food</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../Images/4.jpg" alt="Food 2" class="gallery-img">
+                <div class="gallery-overlay">Food</div>
+            </div>
+            <!-- Milkshakes -->
+            <div class="gallery-item">
+                <img src="../Images/1 (1).jpg" alt="Milkshake 1" class="gallery-img">
+                <div class="gallery-overlay">Milkshake</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../Images/3.jpg" alt="Milkshake 2" class="gallery-img">
+                <div class="gallery-overlay">Milkshake</div>
+            </div>
+            <!-- Theme -->
+            <div class="gallery-item">
+                <img src="../Images/7.jpg" alt="Theme 1" class="gallery-img">
+                <div class="gallery-overlay">Theme</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../Images/8.jpg" alt="Theme 2" class="gallery-img">
+                <div class="gallery-overlay">Theme</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                // Replace with your real Google Form URL and field IDs
-                const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc-9tbIJ9VUDx8HFfLAOQI9m5buXjRSevQruJWloxizlW9wYg/formResponse';
-                const TABLE_FIELD_ID = 'entry.4567890123'; // Table Name Field ID
-                const CART_FIELD_ID = 'entry.5678901234'; // Cart Details Field ID
-                const TOTAL_FIELD_ID = 'entry.6789012345'; // Total Price Field ID
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <span class="close-lightbox">×</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Lightbox Image">
+</div>
 
-                const formData = new FormData();
-                formData.append(TABLE_FIELD_ID, tableName);
-                formData.append(CART_FIELD_ID, cartDetails);
-                formData.append(TOTAL_FIELD_ID, totalPrice);
+<!-- Full-Width Contact Us Section -->
+<div class="full-width-section">
+    <div class="contact-us-section">
+        <h4>Contact Us</h4>
+        <div class="contact-details">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt contact-icon"></i>
+                <p>Phone: <a href="tel:+1234567890">+91 85559 24265 </a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <p>Email: <a href="mailto:cinemamandifandf@gmail.com">cinemamandifandf@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <p>Address: Shop number 4, Railway Employees Colony, Bolarum, Hyderabad, Secunderabad, Telangana 500010, India</p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp contact-icon"></i>
+                <p>WhatsApp: <a href="https://wa.me/+91 8555924265" target="_blank">+91 85559 24265</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>© 2025 DextrusEdge Solutions. All rights reserved.</p>
+</footer>
 
-                try {
-                    await fetch(GOOGLE_FORM_URL, {
-                        method: 'POST',
-                        body: formData,
-                        mode: 'no-cors'
-                    });
-
-                    setTimeout(() => {
-                        alert('Order placed successfully!');
-                        clearCart();
-                        window.location.href = '../index.html';
-                    }, 1000);
-                } catch (error) {
-                    console.error('Error submitting form:', error);
-                    alert('There was an error placing your order. Please try again.');
-                    placeOrderBtn.innerHTML = 'Place Order';
-                    placeOrderBtn.disabled = false;
-                }
-            });
-
-            loadCart();
-        });
-    </script>
+</main>
 
 </body>
 </html>
